@@ -35,7 +35,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{ $totalCategories }}</h3>
                 <p>{{ __('Product Categories') }}</p>
               </div>
               <div class="icon">
@@ -46,7 +46,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{ $totalProducts }}</h3>
                 <p>{{ __('Total Products') }}</p>
               </div>
               <div class="icon">

@@ -14,12 +14,12 @@
 
   @stack('styles')
 
-  <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body class="@yield('body-class', '')">
   
   @yield('content')
 
+  <script src="{{ mix('js/app.js') }}"></script>
   @stack('scripts')
 </body>
 </html>

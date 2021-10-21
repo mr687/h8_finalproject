@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ Route::middleware('auth')
             ->name('dashboard');
         });
         // Route::resource('categories');
-        // Route::resource('products');
+        Route::resource('products', ProductController::class);
         // Route::prefix('reports')
         //     ->name('reports')
         //     ->group(function() {

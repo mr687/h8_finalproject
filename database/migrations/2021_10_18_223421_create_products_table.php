@@ -22,11 +22,11 @@ class CreateProductsTable extends Migration
                 ->cascadeOnUpdate();
             $table->string('name');
             $table->integer('weight')->default(0);
-            $table->string('weight_const');
             $table->bigInteger('price')->default(0);
             $table->enum('status', ['Draft', 'Publish'])
                 ->default('Draft');
             $table->string('image_url')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

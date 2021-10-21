@@ -2,23 +2,29 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasUuid;
+
+    protected $uuidFieldName = 'id';
+    protected $guarded = ['id'];
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     public function products()
     {
-        return $this->hasMany('products');
+        return $this->hasMany(Product::class);
     }
     public function parent()
     {
-        return $this->belongsTo('categories', 'parent_id');
+        return $this->belongsTo(Category::class, 'parent_id');
     }
     public function child()
     {
-        return $this->hasMany('categories', 'parent_id', 'id');
+        return $this->hasMany(Category::class, 'parent_id', 'id');
     }
 }
