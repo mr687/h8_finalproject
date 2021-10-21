@@ -33,11 +33,3 @@
         </div>
     </form>
 @endsection
-
-@push('scripts')
-    <script defer>
-      $(document).ready(function() {
-        $('#description').summernote();
-      })
-    </script>
-@endpush
