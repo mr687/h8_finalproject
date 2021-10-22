@@ -23,12 +23,29 @@ class ProductController extends Controller
 
     public function create()
     {
-        //
+        $categories = Category::whereHas('child')
+            ->get();
+        return view('admin.product.create')
+            ->withCategories($categories);
     }
+
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'status' => 'required|in:Draft,Publish',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric|min:0',
+            'weight' => 'required|numeric|min:0',
+            'image' => 'required|file|max:3072|mimes:jpg,png'
+        ]);
+        Product::create($request->except('image'));
+        return redirect()
+            ->route('products.index')
+            ->with('success', 'Successfully new product created.');
     }
+
     public function edit(Product $product)
     {
         $categories = Category::whereHas('child')
@@ -38,16 +55,22 @@ class ProductController extends Controller
             ->withCategories($categories);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'status' => 'required|in:Draft,Publish',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric|min:0',
+            'weight' => 'required|numeric|min:0',
+            'image' => 'sometimes|required|file|max:3072|mimes:jpg,png'
+        ]);
+
+        $product->update($request->except('image'));
+        return redirect()
+            ->route('products.index')
+            ->with('success', 'Successfully product update.');
     }
 
     /**
@@ -58,6 +81,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()
+            ->route('products.index')
+            ->with('success', 'Successfully product deleted.');
     }
 }

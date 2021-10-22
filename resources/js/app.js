@@ -8,9 +8,11 @@ require('admin-lte/plugins/inputmask/jquery.inputmask.min.js');
 $('.select2').select2({
   placeholder: '-- Select',
   allowClear: true,
-});
+})
+$('[data-mask]').inputmask()
 $('form').submit(function(e){
-  disableSubmitForm($(this))
+  const form = $(this)
+  disableSubmitForm(form)
   return true
 })
 
