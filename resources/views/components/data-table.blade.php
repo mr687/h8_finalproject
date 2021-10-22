@@ -34,9 +34,10 @@
                 @each($itemView, $pagination->items(), 'item')
             @else
                 <tr>
-                    <td colspan="{{ count($heading) }}">No Data!</td>
+                    <td colspan="{{ count($heading) }}" class="text-center">No Data!</td>
                 </tr>
             @endif
         </tbody>
     </table>
+    {{ $pagination->links() }}
 </div>

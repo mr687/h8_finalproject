@@ -12,6 +12,14 @@
         </div>
         <section class="content">
           <div class="container-fluid">
+            @if (session('success'))
+              <div class="alert alert-success d-flex align-items-center" role="alert">
+                <i class="fas fa-check-circle fa-2x mr-3"></i>
+                <div>
+                  {{ session('success') }}
+                </div>
+              </div>
+            @endif
             @yield('admin-content')
           </div>
         </section>
