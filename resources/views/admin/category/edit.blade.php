@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', __('List Category'))
+@section('title', __('Edit Category'))
 @section('admin-content')
 <div class="row justify-content-center ">
     <div class="col-12 col-md-4">

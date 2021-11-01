@@ -7,22 +7,22 @@
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
-                {{-- Alert --}}
-                @if (session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
                 @include('admin.components.breadcrumb')
             </div>
         </div>
         <section class="content">
-            <div class="container-fluid">
-                @yield('admin-content')
+          <div class="container-fluid">
+            {{-- Alert --}}
+            @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            @endif
+            @yield('admin-content')
+          </div>
         </section>
     </div>
 </div>

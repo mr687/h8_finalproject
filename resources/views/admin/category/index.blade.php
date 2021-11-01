@@ -8,7 +8,6 @@
             <div class="card-body">
                 <form action="{{ route('categories.store') }}" method="POST">
                     @csrf
-
                     <div class="form-group mb-3">
                         <label for="newCategoryName" class="form-label fw-bold ">Nama Kategori</label>
                         <input type="text" class="form-control @error('newCategoryName') is-invalid @enderror"
@@ -19,7 +18,6 @@
                         </span>
                         @enderror
                     </div>
-
                     <div class="form-group mb-3">
                         <label for="parentCategory">Kategori</label>
                         <select class="form-control fw-bold @error('parentCategory') is-invalid @enderror"
@@ -75,7 +73,6 @@
                                         onclick="return confirm('Are you sure want to delete this data?')"><i
                                             class="fas fa-trash"></i> Delete</button>
                                 </form>
-
                             </td>
                         </tr>
                         @endforeach
