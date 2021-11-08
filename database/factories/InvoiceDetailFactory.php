@@ -13,7 +13,7 @@ class InvoiceDetailFactory extends Factory
     {
         $products = Product::all();
         $product = $this->faker->randomElement($products);
-        $qty = $this->faker->randomNumber();
+        $qty = $this->faker->randomNumber(1);
         $total = $product->price * $qty;
         return [
             'product_id' => $product->id,

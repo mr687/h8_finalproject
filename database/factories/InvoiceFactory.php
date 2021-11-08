@@ -15,9 +15,9 @@ class InvoiceFactory extends Factory
 
     public function configure()
     {
-        return $this->afterMaking(function(Invoice $invoice) {
+        return $this->afterCreating(function(Invoice $invoice) {
             $invoice->total = $invoice->detail->sum('total');
-            $invoice->save();
+            $invoice->update();
         });
     }
 

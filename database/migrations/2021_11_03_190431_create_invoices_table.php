@@ -16,6 +16,7 @@ class CreateInvoicesTable extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('customer_id')
+                ->nullable()
                 ->references('id')
                 ->on('customers')
                 ->restrictOnDelete()
