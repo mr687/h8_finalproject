@@ -13,7 +13,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Rp 0</h3>
+                <h3>Rp {{ $totalProfit }}</h3>
                 <p>{{ __('Total Profit') }}</p>
               </div>
               <div class="icon">
@@ -24,7 +24,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{ $totalCustomers ?? 0 }}</h3>
                 <p>{{ __('Customers') }}</p>
               </div>
               <div class="icon">
@@ -59,7 +59,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{ $totalOrder['new'] }}</h3>
                 <p>{{ __('New Orders') }}</p>
               </div>
               <div class="icon">
@@ -70,7 +70,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{ $totalOrder['processed'] }}</h3>
                 <p>{{ __('Processed Orders') }}</p>
               </div>
               <div class="icon">
@@ -81,7 +81,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{ $totalOrder['shipped'] }}</h3>
                 <p>{{ __('Shipped Orders') }}</p>
               </div>
               <div class="icon">
@@ -92,7 +92,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{ $totalOrder['done'] }}</h3>
                 <p>{{ __('Orders Done') }}</p>
               </div>
               <div class="icon">

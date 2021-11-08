@@ -38,6 +38,24 @@
                         <p> {{ __('Product') }}</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('products.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-shopping-bag"></i>
+                        <p> {{ __('Order') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('products.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-chart-bar"></i>
+                        <p> {{ __('Reports') }}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('products.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p> {{ __('Settings') }}</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
