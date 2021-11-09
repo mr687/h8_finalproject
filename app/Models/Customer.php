@@ -14,6 +14,7 @@ class Customer extends Model
     protected $uuidFieldName = 'id';
     protected $keyType = 'string';
     public $incrementing = false;
+    protected $with = ['user'];
 
     public function user()
     {
