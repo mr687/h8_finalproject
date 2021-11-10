@@ -11,3 +11,6 @@
 ## Demo Credential (Admin)
 - username: `admin@admin.com`
 - password: `admin`
+
+## Database Design
+![H8-Final-Ecommerce](https://user-images.githubusercontent.com/26916086/141052155-36854a1a-8c66-45dd-ba4f-3b910b32d2cc.jpg)
