@@ -24,6 +24,14 @@ $('body').on('submit', 'form.delete-form', function(e) {
   })
 })
 
+$('body').on('submit', 'form.confirm-form', function(e) {
+  e.preventDefault()
+  alertConfirm((result) => {
+    if (result.value) this.submit()
+    else enableSubmitForm($(this))
+  })
+})
+
 function disableSubmitForm(form){
   form.find('input[type="submit"]').attr('disabled', true);
   form.find('button[type="submit"]').attr('disabled', true);

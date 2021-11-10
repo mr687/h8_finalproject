@@ -44,9 +44,9 @@
             <tr>
                 <td>{{ $invoice->id }}</td>
                 <td class="font-weight-bold">{{ $invoice->customer->user->name}}</td>
-                <td class="">{{$invoice->total}}</td>
-                <td class="">{{ $invoice->status}}</td>
-                <td class="">{{ $invoice->created_at}}</td>
+                <td class="">@money($invoice->total)</td>
+                <td class="">{{ ucfirst($invoice->status) }}</td>
+                <td class="">{{ $invoice->created_at->format('l, d F Y H:i A')}}</td>
             </tr>
             @endforeach
         </tbody>

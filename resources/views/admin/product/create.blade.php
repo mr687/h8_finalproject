@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title', __('Create New Products'))
 @section('admin-content')
-    <form id="product-create" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+    <form id="product-create" action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-md-6">
@@ -92,7 +92,7 @@
               </div>
               <div class="form-group text-right">
                 <button type="submit" class="btn btn-primary">Save Product</button>
-                <a href="{{ route('products.index') }}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Cancel</a>
               </div>
             </div>
           </div>

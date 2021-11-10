@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">{{ __('Kategori Baru') }}</div>
             <div class="card-body">
-                <form action="{{ route('categories.store') }}" method="POST">
+                <form action="{{ route('admin.categories.store') }}" method="POST">
                     @csrf
                     <div class="form-group mb-3">
                         <label for="newCategoryName" class="form-label fw-bold ">Nama Kategori</label>
@@ -62,10 +62,10 @@
                             <td class="">{{ $category->created_at}}</td>
                             <td class="">
                                 {{-- Edit --}}
-                                <a href="{{ route('categories.edit', ['category' => $category->id]) }}"
+                                <a href="{{ route('admin.categories.edit', ['category' => $category->id]) }}"
                                     class="btn btn-warning" role="button"><i class="fas fa-edit"></i> Edit</a>
                                 {{-- Delete --}}
-                                <form action="{{ route('categories.destroy', ['category' => $category->id]) }}"
+                                <form action="{{ route('admin.categories.destroy', ['category' => $category->id]) }}"
                                     method="post" class="d-inline">
                                     @method('delete')
                                     @csrf

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ProductController extends Controller
 {
@@ -18,7 +19,7 @@ class ProductController extends Controller
             })
             ->orderBy('created_at', 'desc');
         return view('admin.product.index')
-            ->withProducts($products->paginate(10));
+            ->withProducts($products->paginate(5));
     }
 
     public function create()
@@ -40,9 +41,10 @@ class ProductController extends Controller
             'weight' => 'required|numeric|min:0',
             'image' => 'required|file|max:3072|mimes:jpg,png'
         ]);
-        Product::create($request->except('image'));
+        $uploadedImage =  $this->uploadImage($request);
+        Product::create($request->merge($uploadedImage)->except('image'));
         return redirect()
-            ->route('products.index')
+            ->route('admin.products.index')
             ->with('success', 'Successfully new product created.');
     }
 
@@ -67,23 +69,47 @@ class ProductController extends Controller
             'image' => 'sometimes|required|file|max:3072|mimes:jpg,png'
         ]);
 
+        if ($request->hasFile('image'))
+        {
+            $uploadedImage = $this->uploadImage($request);
+            $request = $request->merge($uploadedImage);
+        }
+
         $product->update($request->except('image'));
         return redirect()
-            ->route('products.index')
+            ->route('admin.products.index')
             ->with('success', 'Successfully product update.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Product $product)
     {
-        $product->delete();
-        return redirect()
-            ->route('products.index')
-            ->with('success', 'Successfully product deleted.');
+        try {
+            $product->delete();
+            return redirect()
+                ->route('admin.products.index')
+                ->with('success', 'Successfully product deleted.');
+        } catch (\Throwable $th) {
+            return redirect()
+                ->route('admin.products.index')
+                ->with('error', 'This product cannot be deleted. May be related to other models.');
+        }
+    }
+
+    private function uploadImage(Request $request)
+    {
+        $encoded = base64_encode(file_get_contents($request->file('image')));
+        $response = Http::asMultipart()->post('https://api.imgbb.com/1/upload?expiration=40320&key=3d2d515a5f7e8bde539d5cf845b7147a', [
+            'image' => $encoded
+        ]);
+        if ($response->ok()){
+            $data = $response->object();
+            $imageUrl = $data->data->url;
+            $deleteUrl = $data->data->delete_url;
+            return [
+                'image_url' => $imageUrl,
+                'delete_image_url' => $deleteUrl,
+            ];
+        }
+        return [];
     }
 }

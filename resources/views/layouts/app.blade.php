@@ -13,7 +13,6 @@
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
   @stack('styles')
-
 </head>
 <body class="@yield('body-class', '')">
   

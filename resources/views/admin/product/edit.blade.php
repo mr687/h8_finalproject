@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title', __('Edit Products'))
 @section('admin-content')
-    <form id="product-edit" action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
+    <form id="product-edit" action="{{ route('admin.products.update', $product) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('patch')
         <div class="row">
@@ -98,7 +98,7 @@
               </div>
               <div class="form-group text-right">
                 <button type="submit" class="btn btn-primary">Save Product</button>
-                <a href="{{ route('products.index') }}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Cancel</a>
               </div>
             </div>
           </div>

@@ -15,6 +15,8 @@ class Category extends Model
     protected $keyType = 'string';
     public $incrementing = false;
 
+    protected $with = ['parent'];
+
     public function products()
     {
         return $this->hasMany(Product::class);

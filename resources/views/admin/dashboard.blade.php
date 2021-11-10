@@ -13,7 +13,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Rp {{ $totalProfit }}</h3>
+                <h3>@money($totalProfit)</h3>
                 <p>{{ __('Total Profit') }}</p>
               </div>
               <div class="icon">

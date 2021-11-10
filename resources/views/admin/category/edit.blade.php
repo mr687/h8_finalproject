@@ -8,7 +8,7 @@
             <div class="card-body">
 
                 {{-- Delete --}}
-                <form action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="post"
+                <form action="{{ route('admin.categories.destroy', ['category' => $category->id]) }}" method="post"
                     class="d-inline-block float-right mb-2 mx-1">
                     @method('delete')
                     @csrf
@@ -18,11 +18,11 @@
                         Delete</button>
                 </form>
                 {{-- Back to categories --}}
-                <a class="btn btn-success float-right mb-2 mx-1" href="{{ route('categories.index') }}" role="button">
+                <a class="btn btn-success float-right mb-2 mx-1" href="{{ route('admin.categories.index') }}" role="button">
                     <i class="fas fa-arrow-alt-circle-left"></i> Back</a>
 
 
-                <form action="{{ route('categories.update',  ['category' => $category->id]) }}" method="POST">
+                <form action="{{ route('admin.categories.update',  ['category' => $category->id]) }}" method="POST">
                     @method('put')
                     @csrf
 
@@ -41,17 +41,10 @@
                     <div class="form-group mb-3">
                         <label for="parentCategory">Kategori</label>
                         <select class="form-control fw-bold @error('parentCategory') is-invalid @enderror"
-                            name="parentCategory" id="parentCategory" @if ($parentName==NULL) disabled @endif>
-
-                            {{-- Tampilkan parent kategori data pertama --}}
-                            <option value="{{ $parentName }}">{{ $parentName }}</option>
-
+                            name="parentCategory" id="parentCategory">
+                            <option value="">None</option>
                             @foreach ($parentsCategories as $item)
-                            @if ($parentName == $item->name)
-                            @continue
-                            @else
-                            <option value="{{ $item->name }}">{{ $item->name }}</option>
-                            @endif
+                                <option value="{{ $item->id }}" {{ $item->id === ($category->parent->id ?? null) ? 'selected=""' : '' }}>{{ $item->name }}</option>
                             @endforeach
                         </select>
                         @error('parentCategory')

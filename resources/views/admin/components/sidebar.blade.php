@@ -20,41 +20,43 @@
         <div class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Route::is('admin.dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p> {{ __('Dashboard') }}</p>
                     </a>
                 </li>
                 <li class="nav-header text-uppercase">{{ __('Management Product') }}</li>
                 <li class="nav-item">
-                    <a href="{{ route('categories.index') }}" class="nav-link">
+                    <a href="{{ route('admin.categories.index') }}" class="nav-link {{ Route::is('admin.categories.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p> {{ __('Category') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('products.index') }}" class="nav-link">
+                    <a href="{{ route('admin.products.index') }}" class="nav-link {{ Route::is('admin.products.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-box"></i>
                         <p> {{ __('Product') }}</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('orders.index') }}" class="nav-link">
+                    <a href="{{ route('admin.orders.index') }}" class="nav-link {{ Route::is('admin.orders.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-shopping-bag"></i>
                         <p> {{ __('Order') }}</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('products.index') }}" class="nav-link">
+                <li class="nav-item {{ Route::is('admin.reports.*') ? 'menu-open' : '' }}">
+                    <a href="javascript:void(0)" class="nav-link">
                         <i class="nav-icon fas fa-chart-bar"></i>
-                        <p> {{ __('Reports') }}</p>
+                        <p> {{ __('Reports') }} <i class="right fas fa-angle-left"></i></p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('products.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p> {{ __('Settings') }}</p>
-                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.reports.index') }}" class="nav-link {{ Route::is('admin.reports.*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Order Reports</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
