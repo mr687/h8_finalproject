@@ -6,6 +6,7 @@
 - `cp .env.example .env` & Set-up database
 - `php artisan key:generate`
 - `npm install && npm run dev`
+- `php artisan migrate:fresh --seed`
 - `php artisan serve`
 
 ## Demo Credential (Admin)
