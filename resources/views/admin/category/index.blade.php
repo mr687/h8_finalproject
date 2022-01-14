@@ -24,7 +24,7 @@
                             name="parentCategory" id="parentCategory">
                             <option value="">None</option>
                             @foreach ($parents as $parent)
-                            <option value="{{ $parent->name }}">{{ $parent->name }}</option>
+                            <option value="{{ $parent->id }}">{{ $parent->name }}</option>
                             @endforeach
                         </select>
                         @error('parentCategory')
