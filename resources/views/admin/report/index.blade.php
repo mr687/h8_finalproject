@@ -38,7 +38,7 @@
                 <table class="table table-bordered ">
                     <thead>
                         <tr>
-                            <th scope="col">InvoiceID</th>
+                            <th scope="col">OrderID</th>
                             <th scope="col">Pelanggan</th>
                             <th scope="col">Total</th>
                             <th scope="col">Status</th>
@@ -48,7 +48,7 @@
                     <tbody>
                         @foreach ($invoices as $invoice)
                         <tr>
-                            <td>{{ $invoice->id }}</td>
+                            <td>{{ $invoice->order_id }}</td>
                             <td class="font-weight-bold">{{ $invoice->customer->user->name}}</td>
                             <td>@money($invoice->total)</td>
                             <td>{{ ucfirst($invoice->status) }}</td>

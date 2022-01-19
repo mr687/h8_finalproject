@@ -1,47 +1,10 @@
 @extends('layouts.admin')
-@section('title', __('List Category'))
+@section('title', __('Product Categories'))
 @section('admin-content')
 <div class="row justify-content-center ">
-    <div class="col-12 col-md-4">
-        <div class="card">
-            <div class="card-header">{{ __('Kategori Baru') }}</div>
-            <div class="card-body">
-                <form action="{{ route('admin.categories.store') }}" method="POST">
-                    @csrf
-                    <div class="form-group mb-3">
-                        <label for="newCategoryName" class="form-label fw-bold ">Nama Kategori</label>
-                        <input type="text" class="form-control @error('newCategoryName') is-invalid @enderror"
-                            name="newCategoryName" id="newCategoryName" required value="{{ old('newCategoryName') }}">
-                        @error('newCategoryName')
-                        <span class="error invalid-feedback">
-                            {{ $message }}
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="parentCategory">Kategori</label>
-                        <select class="form-control fw-bold @error('parentCategory') is-invalid @enderror"
-                            name="parentCategory" id="parentCategory">
-                            <option value="">None</option>
-                            @foreach ($parents as $parent)
-                            <option value="{{ $parent->id }}">{{ $parent->name }}</option>
-                            @endforeach
-                        </select>
-                        @error('parentCategory')
-                        <span class="error invalid-feedback">
-                            {{ $message }}
-                        </span>
-                        @enderror
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="col-12 col-md-7">
         <div class="card">
-            <div class="card-header">{{ __('List Products') }}</div>
+            <div class="card-header">{{ __('List Categories') }}</div>
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
@@ -78,6 +41,43 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="card">
+            <div class="card-header">{{ __('Add Category') }}</div>
+            <div class="card-body">
+                <form action="{{ route('admin.categories.store') }}" method="POST">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <label for="newCategoryName" class="form-label fw-bold ">{{ __('Category Name') }}</label>
+                        <input type="text" class="form-control @error('newCategoryName') is-invalid @enderror"
+                            name="newCategoryName" id="newCategoryName" required value="{{ old('newCategoryName') }}">
+                        @error('newCategoryName')
+                        <span class="error invalid-feedback">
+                            {{ $message }}
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="parentCategory">{{ __('Parent Category') }}</label>
+                        <select class="form-control fw-bold @error('parentCategory') is-invalid @enderror"
+                            name="parentCategory" id="parentCategory">
+                            <option value="">None</option>
+                            @foreach ($parents as $parent)
+                            <option value="{{ $parent->id }}">{{ $parent->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('parentCategory')
+                        <span class="error invalid-feedback">
+                            {{ $message }}
+                        </span>
+                        @enderror
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </form>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', __('Dashboard'))
+@section('title', __('Dashboard Admin'))
 @section('admin-content')
     <div class="card">
       <div class="card-header">

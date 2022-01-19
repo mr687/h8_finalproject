@@ -4,11 +4,11 @@
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <b>E</b> - COMMERCE
+            Log In - <b>Admin Panel</b>
         </div>
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">{{ __('Sign in to start your session') }}</p>
+                <p class="login-box-msg">{{ __('Log In to start your session') }}</p>
                 
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary btn-block">{{ __('Sign In') }}</button>
+                            <button type="submit" class="btn btn-primary btn-block">{{ __('Log In') }}</button>
                         </div>
                     </div>
                 </form>

@@ -1,5 +1,5 @@
 <tr>
-  <td><a href="{{ route('admin.orders.show', $item) }}"><u>{{ $item->id }}</u></a></td>
+  <td><a href="{{ route('admin.orders.show', $item) }}"><u>{{ $item->order_id }}</u></a></td>
   <td><b>{{ $item->customer->user->name }}</b></td>
   <td>{{ $item->detail->count() }} product</td>
   <td>@money($item->total)</td>

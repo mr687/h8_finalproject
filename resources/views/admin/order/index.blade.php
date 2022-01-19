@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', __('List Orders'))
+@section('title', __('Orders'))
 @section('admin-content')
     <div class="card">
       <div class="card-header">{{ __('List Orders') }}</div>
@@ -16,7 +16,7 @@
         </div>
         <x-data-table
           :pagination="$orders"
-          :heading="['Invoice ID', 'Customer', 'Products', 'Price Total', 'Status', 'Action']"
+          :heading="['Order ID', 'Customer', 'Products', 'Price Total', 'Status', 'Action']"
           item-view="admin.order.partials.item" />
       </div>
     </div>

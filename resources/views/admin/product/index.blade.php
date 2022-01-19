@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', __('List Products'))
+@section('title', __('Products'))
 @section('admin-content')
     <div class="card">
       <div class="card-header">{{ __('List Products') }}</div>
