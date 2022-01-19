@@ -15,21 +15,12 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $smartphone = Category::create(['name' => 'Smartphone']);
-        $laptop = Category::create(['name' => 'Laptop']);
         $accessories = Category::create(['name' => 'Accessories']);
 
         $smartphone->child()
             ->saveMany([
                 new Category(['name' => 'Samsung']),
-                new Category(['name' => 'Xiaomi']),
                 new Category(['name' => 'Iphone']),
-            ]);
-        
-        $laptop->child()
-            ->saveMany([
-                new Category(['name' => 'Asus']),
-                new Category(['name' => 'Apple']),
-                new Category(['name' => 'Lenovo']),
             ]);
 
         $accessories->child()
