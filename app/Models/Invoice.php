@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HasOrderId;
 use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 class Invoice extends Model
 {
     use HasFactory,
-        HasUuid;
+        HasUuid,
+        HasOrderId;
     protected $guarded = ['id'];
     protected $keyType = 'string';
     protected $uuidFieldName = 'id';
