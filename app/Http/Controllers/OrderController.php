@@ -18,7 +18,7 @@ class OrderController extends Controller
           return $q->where('name', 'like', "%{$request->get('query')}%");
         });
       })
-        ->orWhere('id', $request->get('query'));
+        ->orWhere('order_id', $request->get('query'));
     }
     return view('admin.order.index')
       ->withOrders($orders->paginate(10));
