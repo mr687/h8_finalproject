@@ -52,7 +52,7 @@
                             <td class="font-weight-bold">{{ $invoice->customer->user->name}}</td>
                             <td>@money($invoice->total)</td>
                             <td>{{ ucfirst($invoice->status) }}</td>
-                            <td class="">{{ $invoice->created_at->format('l, d F Y H:i A')}}</td>
+                            <td class="">{{ $invoice->updated_at->format('l, d F Y H:i A')}}</td>
                         </tr>
                         @endforeach
                     </tbody>

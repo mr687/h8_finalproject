@@ -10,7 +10,10 @@ class InvoiceFactory extends Factory
     protected $model = Invoice::class;
     public function definition()
     {
-        return [ 'total' => 0 ];
+        return [ 
+            'total' => 0,
+            'updated_at' => date("Y-m-d H:i:s", mt_rand(1629672511,1642546111)),
+         ];
     }
 
     public function configure()
